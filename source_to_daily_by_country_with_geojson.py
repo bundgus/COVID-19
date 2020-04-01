@@ -1,6 +1,8 @@
 import glob
 import pandas as pd
 import numpy as np
+import csv
+import jinja2
 
 
 def combine_csv(source_files, output_file):
@@ -157,6 +159,16 @@ if __name__ == '__main__':
 
     filled_df['active'] = filled_df['confirmed'] - filled_df['deaths'] - filled_df['recovered']
     filled_df['mortality_rate'] = (filled_df['deaths'] / filled_df['confirmed']).fillna(0.0)
-    final_df = filled_df
+    final_df = filled_df.sort_values(by=['date_time'])
 
-    final_df.to_csv('docs/daily_by_country.csv', index=False)
+    final_df.to_csv('docs/daily_by_country.csv', index=False, quoting=csv.QUOTE_NONNUMERIC)
+
+    templateLoader = jinja2.FileSystemLoader(searchpath="./")
+    templateEnv = jinja2.Environment(loader=templateLoader)
+    TEMPLATE_FILE = "report_template.html.j2"
+    template = templateEnv.get_template(TEMPLATE_FILE)
+    # json_data = final_df[final_df['date_time'] >= '2020-03-01 00:00:00+00:00'].to_json(orient='values')
+    json_data = final_df.to_json(orient='values')
+    outputText = template.render(data=json_data)  # this is where to put args to the template renderer
+    with open('docs/covid-19-country-timeline.html', 'w') as html_report_file:
+        html_report_file.write(outputText)
