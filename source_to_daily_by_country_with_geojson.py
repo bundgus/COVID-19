@@ -25,13 +25,13 @@ def combine_csv(source_files, output_file):
 if __name__ == '__main__':
 
     directories = [
-        {'read_files': glob.glob("daily_format_1/*.csv"),
+        {'read_files': glob.glob("csse_covid_19_data/csse_covid_19_daily_reports/daily_format_1/*.csv"),
          'summary_file': "daily_format_1.csv"
          },
-        {'read_files': glob.glob("daily_format_2/*.csv"),
+        {'read_files': glob.glob("csse_covid_19_data/csse_covid_19_daily_reports/daily_format_2/*.csv"),
          'summary_file': "daily_format_2.csv"
          },
-        {'read_files': glob.glob("daily_format_3/*.csv"),
+        {'read_files': glob.glob("csse_covid_19_data/csse_covid_19_daily_reports/daily_format_3/*.csv"),
          'summary_file': "daily_format_3.csv"
          }
     ]
@@ -72,9 +72,9 @@ if __name__ == '__main__':
 
     frames = [df1, df2, df3]
     df = pd.concat(frames, sort=True)
-    df.to_csv('daily_combined.csv', index=False)
+    # df.to_csv('daily_combined.csv', index=False)
 
-    df = pd.read_csv('daily_combined.csv')
+    # df = pd.read_csv('daily_combined.csv')
     df = df[['Active', 'Admin2', 'Combined_Key', 'Confirmed', 'Country_Region',
              'Deaths', 'FIPS', 'Last_Update', 'Province_State',
              'Recovered', 'date_time']]
@@ -152,11 +152,11 @@ if __name__ == '__main__':
         filled_df = filled_df.append(tdf)
 
     # join with geojson geometry
-    # df_geojson = pd.read_csv('countries_simplified_geojson.csv')
+    # df_geojson = pd.read_csv('geojson_assets/countries_simplified_geojson.csv')
     # final_df = filled_df.merge(df_geojson, left_on='iso_a2', right_on='iso_a2', how='left')
 
     filled_df['active'] = filled_df['confirmed'] - filled_df['deaths'] - filled_df['recovered']
     filled_df['mortality_rate'] = (filled_df['deaths'] / filled_df['confirmed']).fillna(0.0)
     final_df = filled_df
 
-    final_df.to_csv('daily_by_country.csv', index=False)
+    final_df.to_csv('docs/daily_by_country.csv', index=False)
