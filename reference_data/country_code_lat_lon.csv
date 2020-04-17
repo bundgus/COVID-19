@@ -45,7 +45,7 @@ Costa Rica,Costa Rica,CR,9.748917,-83.753428
 Cote d'Ivoire,Côte d'Ivoire,CI,7.539989,-5.54708
 Croatia,Croatia,HR,45.1,15.2
 Cuba,Cuba,CU,21.521757,-77.781167
-Curacao,Curaçao,CW,12.1696,68.99
+Curacao,Curaçao,CW,12.1696,-68.99
 Cyprus,Cyprus,CY,35.126413,33.429859
 Czech Republic,Czech Republic,CZ,49.817492,15.472962
 Czechia,Czech Republic,CZ,49.817492,15.472962
@@ -169,10 +169,10 @@ Romania,Romania,RO,45.943161,24.96676
 Russia,Russia,RU,61.52401,105.318756
 Russian Federation,Russia,RU,61.52401,105.318756
 Rwanda,Rwanda,RW,-1.940278,29.873888
-Saint Barthelemy,Saint Barthélemy,BL,17.9,62.8333
+Saint Barthelemy,Saint Barthélemy,BL,17.9,-62.8333
 Saint Kitts and Nevis,Saint Kitts and Nevis,KN,17.357822,-62.782998
 Saint Lucia,Saint Lucia,LC,13.909444,-60.978893
-Saint Martin,Saint Martin,SX,18.0425,63.0548
+Saint Martin,Saint Martin,SX,18.0425,-63.0548
 Saint Vincent and the Grenadines,Saint Vincent and the Grenadines,VC,12.984305,-61.287228
 San Marino,San Marino,SM,43.94236,12.457777
 Saudi Arabia,Saudi Arabia,SA,23.885942,45.079162
@@ -187,7 +187,7 @@ South Africa,South Africa,ZA,-30.559482,22.937506
 South Korea,South Korea,KR,35.907757,127.766922
 Spain,Spain,ES,40.463667,-3.74922
 Sri Lanka,Sri Lanka,LK,7.873054,80.771797
-St. Martin,Saint Martin,SX,18.0425,63.0548
+St. Martin,Saint Martin,SX,18.0425,-63.0548
 Sudan,Sudan,SD,12.862807,30.217636
 Suriname,Suriname,SR,3.919305,-56.027783
 Sweden,Sweden,SE,60.128161,18.643501
